@@ -1,0 +1,24 @@
+{
+  "name": "rest-nodejs-task",
+  "version": "1.0.0",
+  "description": "REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/androm3dam/rest-nodejs-task.git"
+  },
+  "keywords": [
+    "node.js",
+    "MongoDB",
+    "jwt"
+  ],
+  "author": "Andrei Mouchan <androm3dam@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/androm3dam/rest-nodejs-task/issues"
+  },
+  "homepage": "https://github.com/androm3dam/rest-nodejs-task#readme"
+}
