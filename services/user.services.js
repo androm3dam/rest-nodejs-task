@@ -64,6 +64,12 @@ const UserServices = {
       await Token.findByIdAndDelete(token);
     }
   },
+
+  info: async (auth) => {
+    const token = auth.split(' ')[1];
+    const tokenData = await Token.findById(token);
+    return JSON.parse(tokenData.user);
+  },
 };
 
 module.exports = UserServices;

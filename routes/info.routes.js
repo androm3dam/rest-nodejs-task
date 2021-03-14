@@ -1,10 +1,11 @@
 const { Router } = require('express');
 const https = require('https');
-const InfoServices = require('../services/info.services');
+const auth = require('./middleware/auth.middleware');
+const UserServices = require('../services/user.services');
 
 const router = Router();
 
-router.get('/latency', async (req, res) => {
+router.get('/latency', auth, async (req, res) => {
   try {
     const start = Date.now();
     let latency = null;
@@ -13,6 +14,16 @@ router.get('/latency', async (req, res) => {
       latency = end - start + ' ms';
       res.status(200).json({ latency });
     });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get('/info', auth, async (req, res) => {
+  try {
+    const info = await UserServices.info(req.headers.authorization);
+    console.log(info);
+    res.status(200).json(info._id);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
