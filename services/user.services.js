@@ -1,5 +1,5 @@
-const User = require('../routes/models/User');
-const Token = require('../routes/models/Token');
+const User = require('./models/User');
+const Token = require('./models/Token');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { jwtKey } = require('../config');
@@ -37,9 +37,7 @@ const UserServices = {
     }
 
     const token = jwt.sign({ userId: user.id }, jwtKey, {
-      // expiresIn: 300,
-      // dev
-      expiresIn: '1h',
+      expiresIn: 300,
     });
 
     const newToken = await new Token({

@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { PORT, mongoDB } = require('./config');
 
 const app = express();
 
 app.use(express.json({ extended: true }));
+app.use(cors());
 app.use('', require('./routes/auth.routes'));
 app.use('', require('./routes/info.routes'));
 

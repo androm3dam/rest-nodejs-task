@@ -22,7 +22,6 @@ router.get('/latency', auth, async (req, res) => {
 router.get('/info', auth, async (req, res) => {
   try {
     const info = await UserServices.info(req.headers.authorization);
-    console.log(info);
     res.status(200).json(info._id);
   } catch (error) {
     res.status(500).json({ message: error.message });
