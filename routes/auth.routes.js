@@ -1,18 +1,10 @@
-const { Router, request } = require('express');
+const { Router } = require('express');
 const UserServices = require('../services/user.services');
 const auth = require('./middleware/auth.middleware');
 const router = Router();
-const https = require('https');
 
 router.post('/signup', async (req, res) => {
-  const time = Date.now();
-  console.log(time);
   try {
-    /* https.get('https://google.com', () => {
-      console.log('got it');
-      const time2 = Date.now();
-      console.log(time2 - time + ' ms');
-    }); */
     const params = req.body;
     await UserServices.signUp(params);
     const token = await UserServices.login(params);

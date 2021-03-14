@@ -6,6 +6,7 @@ const app = express();
 
 app.use(express.json({ extended: true }));
 app.use('', require('./routes/auth.routes'));
+app.use('', require('./routes/info.routes'));
 
 async function start() {
   try {
